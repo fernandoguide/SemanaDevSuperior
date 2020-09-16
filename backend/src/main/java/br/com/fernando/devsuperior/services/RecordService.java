@@ -7,6 +7,8 @@ import br.com.fernando.devsuperior.entities.Record;
 import br.com.fernando.devsuperior.repositories.GameRepository;
 import br.com.fernando.devsuperior.repositories.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,6 +37,10 @@ public class RecordService {
         entity = recordRepository.save(entity);
 
         return new RecordDTO(entity);
+    }
+    @Transactional(readOnly = true)
+    public Page<RecordDTO> findByMoments(Instant minDate, Instant maxDate, PageRequest pageRequest) {
+        return recordRepository.findByMoments(minDate,maxDate,pageRequest).map(x -> new RecordDTO(x));
     }
 
 }
