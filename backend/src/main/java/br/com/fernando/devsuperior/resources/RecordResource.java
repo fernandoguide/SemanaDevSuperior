@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
 
+@CrossOrigin(value = "*")
 @RestController
 @RequestMapping(value = "/records")
 public class RecordResource {
 
     @Autowired
     private RecordService recordService;
-
 
     @PostMapping
     public ResponseEntity<RecordDTO> insert(@RequestBody RecordInsertDTO dto){
