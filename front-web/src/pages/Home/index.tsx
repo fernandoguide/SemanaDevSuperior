@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css'
-import { ReactComponent as ArrrowIcon } from '../../assests/arrow.svg';
-import { ReactComponent as GamerImage } from '../../assests/gamer.svg';
+import { ReactComponent as ArrrowIcon } from '../../assets/arrow.svg';
+import { ReactComponent as GamerImage } from '../../assets/gamer.svg';
 const Home = () => (
 
     <div className="home-container">
